@@ -1,12 +1,12 @@
 #define PIN_LED 13
 unsigned int count = 0;
-int toggle = 0; //변수 선언 시 초기화
+int toggle = 0; // 변수 선언 시 초기화
 
 void setup() {
-  pinMode(PIN_LED,OUTPUT);
+  pinMode(PIN_LED, OUTPUT);
   Serial.begin(115200);
-  while (!Serial){
-    ;
+  while (!Serial) {
+    ; // 시리얼 포트가 연결될 때까지 대기
   }
   Serial.println("Hello World!");
   count = toggle = 0;
@@ -15,11 +15,14 @@ void setup() {
 
 void loop() {
   Serial.println(++count);
-  toggle = toggle_state(toggle);
+
+  // if문을 사용하여 toggle 변수의 값을 0이면 1로, 1이면 0으로 변경
+  if (toggle == 0) {
+    toggle = 1;
+  } else {
+    toggle = 0;
+  }
+  
   digitalWrite(PIN_LED, toggle);
   delay(1000);
-}
-
-int toggle_state(int current_state){
-  return !current_state; //0이면 1, 1이면 0으로 변환
 }
