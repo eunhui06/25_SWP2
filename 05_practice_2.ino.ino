@@ -15,12 +15,12 @@ void loop() {
   digitalWrite(ledPin, HIGH); // HIGH로 끄기
   delay(1000);
 
-  // 3. 0.2초 간격으로 LED 5번 깜빡이기
+  // 3. 0.1초 간격으로 LED 5번 깜빡이기
   for (int i = 0; i < 5; i++) {
     digitalWrite(ledPin, LOW);  // LOW로 켜기
-    delay(200);
+    delay(100);
     digitalWrite(ledPin, HIGH); // HIGH로 끄기
-    delay(200);
+    delay(100);
   }
 
   // 4. 모든 동작이 끝난 후 LED를 확실히 끄고 프로그램을 정지
@@ -31,3 +31,4 @@ void loop() {
     // LED가 꺼진 상태로 유지.
   }
 }
+
